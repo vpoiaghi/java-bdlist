@@ -1,0 +1,23 @@
+package data.extendedbo;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import data.bo.BoEditor;
+
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "id")
+public class Editor extends BoEditor {
+
+    public List<Goody> getGoodies() {
+        return getLinkedBoList(Goody.class);
+    }
+    
+    @Override
+    public String toString() {
+    	return getName();
+    }
+}
